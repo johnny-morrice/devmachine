@@ -13,21 +13,20 @@ Vagrant.configure("2") do |config|
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
-  config.vm.network "private_network", ip: "172.16.1.2"
+  config.vm.network "private_network", ip: "172.16.1.5"
   config.vm.network "forwarded_port", guest: 8080, host: 8080
 
   config.vm.provider "virtualbox" do |vb|
-    vb.name = "weather-clock-service-test"
+    vb.name = "dev-machine"
     vb.memory = HOME_ENV["VM_MEMORY"]
     vb.cpus = HOME_ENV["VM_CPUS"]
     vb.linked_clone = true
     vb.default_nic_type = "virtio"
   end
 
+  config.vm.synced_folder "../../", "/srv/dev"
   config.vm.provision "file", source: "ubuntu.gpg", destination: "~/ubuntu.gpg"
-  config.vm.provision "file", source: "github.pat", destination: "~/github.pat"
   config.vm.provision "shell", path: "setup_vagrant_root.sh"
   config.vm.provision "shell", path: "setup_vagrant_home.sh", privileged: false, env: HOME_ENV
   config.vm.provision "shell", path: "setup_vagrant_docker.sh"
-  config.vm.provision "file", source: "../env", destination: "~/weather-clock-service/env"
 end
