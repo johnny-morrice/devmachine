@@ -1,0 +1,15 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Environment files
+*.env
+# Github PATs
+*.pat
+# GPG keys
+*.gpg
+
+.vagrant/
