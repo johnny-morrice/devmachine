@@ -32,5 +32,5 @@ usermod -aG docker vagrant
 curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 chmod +x /usr/local/bin/docker-compose
 
-curl -L "https://golang.org/dl/go1.16.7.linux-amd64.tar.gz" -o go1.16.7.linux-amd64.tar.gz
-rm -rf /usr/local/go && tar -C /usr/local -xzf go1.16.7.linux-amd64.tar.gz
+curl -L "https://go.dev/dl/go1.18.4.linux-amd64.tar.gz" -o go1.18.4.linux-amd64.tar.gz
+rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.4.linux-amd64.tar.gz
