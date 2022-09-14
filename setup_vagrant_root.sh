@@ -25,7 +25,7 @@ echo \
     
 apt-get update
 
-apt-get install -y docker-ce docker-ce-cli containerd.io build-essential
+apt-get install -y docker-ce docker-ce-cli containerd.io build-essential docker-compose-plugin
 
 usermod -aG docker vagrant
 
