@@ -15,7 +15,8 @@ apt-get install -y \
     ca-certificates \
     curl \
     gnupg \
-    lsb-release
+    lsb-release \
+    zsh
 
 cat /home/vagrant/ubuntu.gpg | gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
 
@@ -34,3 +35,5 @@ chmod +x /usr/local/bin/docker-compose
 
 curl -L "https://go.dev/dl/go1.18.4.linux-amd64.tar.gz" -o go1.18.4.linux-amd64.tar.gz
 rm -rf /usr/local/go && tar -C /usr/local -xzf go1.18.4.linux-amd64.tar.gz
+
+chsh -s /bin/zsh vagrant 
