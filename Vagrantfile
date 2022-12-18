@@ -15,6 +15,7 @@ Vagrant.configure("2") do |config|
   # using a specific IP.
   config.vm.network "private_network", ip: "172.16.1.5"
   config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 22, host: 8022
 
   config.vm.provider "virtualbox" do |vb|
     vb.name = "dev-machine"
@@ -24,7 +25,7 @@ Vagrant.configure("2") do |config|
     vb.default_nic_type = "virtio"
   end
 
-  config.vm.synced_folder "../../", "/srv/dev"
+  config.vm.synced_folder "../../", "/srv/windows/dev"
   config.vm.provision "file", source: "ubuntu.gpg", destination: "~/ubuntu.gpg"
   config.vm.provision "shell", path: "setup_vagrant_root.sh"
   config.vm.provision "shell", path: "setup_vagrant_home.sh", privileged: false, env: HOME_ENV
